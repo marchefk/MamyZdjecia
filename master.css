@@ -1,0 +1,48 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box; }
+
+.nav .navbar-nav .nav-item .nav-link {
+  font-weight: 600;
+  text-transform: uppercase; }
+
+@media (min-width: 700px) {
+  .nav {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 17rem;
+    height: 100vh; }
+    .nav .navbar-brand {
+      display: flex;
+      margin: auto auto 0;
+      padding: 0.5rem; }
+      .nav .navbar-brand .img-profile {
+        max-width: 10rem;
+        max-height: 10rem;
+        border: 0.5rem solid rgba(255, 255, 255, 0.2); }
+    .nav .navbar-collapse {
+      display: flex;
+      align-items: flex-start;
+      flex-grow: 0;
+      width: 100%;
+      margin-bottom: auto; }
+      .nav .navbar-collapse .navbar-nav {
+        flex-direction: column;
+        width: 100%; }
+        .nav .navbar-collapse .navbar-nav .nav-item {
+          display: block; }
+          .nav .navbar-collapse .navbar-nav .nav-item .nav-link {
+            display: block; } }
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0; }
+
+.full {
+  height: 100%;
+  width: 100%; }
+
+/*# sourceMappingURL=master.css.map */
