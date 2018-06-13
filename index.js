@@ -1,15 +1,15 @@
 let landingHeight = $("#landing").height();
-let minWidth = window.matchMedia("(min-width: 700px)");
+let minWidth = window.matchMedia("(min-width: 701px)");
 
 $(window).scroll(function() {
-  console.log('scrolling');
+  if (minWidth.matches) {
     let scroll = $(window).scrollTop();
     if (scroll >= landingHeight) {
-        $("#nav").addClass("fixed");
-    }
-    else {
+      $("#nav").addClass("fixed");
+    } else {
       $("#nav").removeClass("fixed");
     }
+  }
 });
 
 // Smooth scrolling using jQuery easing
@@ -36,9 +36,9 @@ $('body').scrollspy({
   target: '#nav'
 });
 
-$(window).resize(function(){
+$(window).resize(function() {
   landingHeight = $("#landing").height();
-  if($("#nav").hasClass("fixed")){
+  if ($("#nav").hasClass("fixed")) {
     $("#nav").removeClass("fixed");
   }
 });
