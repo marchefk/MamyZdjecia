@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="pl" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="master.css" media="screen">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title>Mamy Zdjęcia</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="master.css" media="screen">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Mamy Zdjęcia</title>
+</head>
+
+<body>
   <!-- LANDING -->
   <section id="landing" class="landing-container full">
     <div class="landing-content">
       <h1>Mamy Zdjęcia</h1>
-      <p>To projekt, który bazuje na emocjach. Polega na uchwyceniu chwili. Zatrzymaniu w kadrze niesamowitej relacji,
-błysku wzruszenia w oku i lekkości kącików ust w uśmiechu.
-To projekt ukazujący wyjątkowość Twojej relacji z dzieckiem.</p>
+      <p>To projekt, który bazuje na emocjach. Polega na uchwyceniu chwili. Zatrzymaniu w kadrze niesamowitej relacji, błysku wzruszenia w oku i lekkości kącików ust w uśmiechu. To projekt ukazujący wyjątkowość Twojej relacji z dzieckiem.</p>
       <a href="#gallery"><button class="button">GALERIA</button></a>
       <a href="#contact"><button class="button">KONTAKT</button></a>
       <!-- icon-instagram, icon-facebook here -->
@@ -51,7 +51,17 @@ To projekt ukazujący wyjątkowość Twojej relacji z dzieckiem.</p>
   </nav>
   <!-- HOME -->
   <section id="home" class="home-container full">
-    
+    <div id='home-carousel' class="carousel slide" data-ride="carousel">
+      <div id="home_gallery" class="carousel-inner"></div>
+      <a class="carousel-control-prev" href="#home-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#home-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
 
   </section>
   <!-- ABOUT -->
@@ -62,7 +72,8 @@ To projekt ukazujący wyjątkowość Twojej relacji z dzieckiem.</p>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- jQuery easing plugin -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script type="text/javascript" src="index.js" charset="utf-8"></script>
-  </body>
+</body>
+
 </html>

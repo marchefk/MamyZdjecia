@@ -1,6 +1,8 @@
 let landingHeight = $("#landing").height();
 let minWidth = window.matchMedia("(min-width: 701px)");
+let url = 'https://res.cloudinary.com/marchefk/image';
 
+// Fixed sidebar on big screen
 $(window).scroll(function() {
   if (minWidth.matches) {
     let scroll = $(window).scrollTop();
@@ -11,6 +13,28 @@ $(window).scroll(function() {
     }
   }
 });
+
+let getPictures = (category, containerID) => {
+  $.getJSON(`${url}/list/${category}.json`, function (data) {
+    for(let i = 0; i < data.resources.length; i++){
+      let imgData = data.resources[i];
+      let newDiv = document.createElement('div');
+      if (i === 0){
+        newDiv.setAttribute('class', 'carousel-item active');
+      } else {
+        newDiv.setAttribute('class', 'carousel-item');
+      }
+      let newImg = document.createElement('img');
+      newImg.setAttribute('src', `${url}/upload/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
+      newImg.setAttribute('class', 'd-block img-fluid');
+      $(containerID).append(newDiv);
+      $(newDiv).append(newImg);
+    }
+  })
+}
+
+getPictures('home', '#home_gallery');
+
 
 // Smooth scrolling using jQuery easing
 $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
@@ -42,3 +66,5 @@ $(window).resize(function() {
     $("#nav").removeClass("fixed");
   }
 });
+
+// 313573526563941
