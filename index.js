@@ -26,7 +26,7 @@ let getPictures = (category, containerID) => {
       }
       let newImg = document.createElement('img');
       newImg.setAttribute('src', `${url}/upload/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
-      newImg.setAttribute('class', 'd-block img-fluid');
+      newImg.setAttribute('class', 'd-block');
       $(containerID).append(newDiv);
       $(newDiv).append(newImg);
     }

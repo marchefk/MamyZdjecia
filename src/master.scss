@@ -4,6 +4,11 @@ html {
   width: 100%;
   margin: 0;
   box-sizing: border-box;
+  background-color: lightblue;
+}
+
+.landing-container {
+  background-color: pink;
 }
 
 .landing-content {
@@ -15,6 +20,7 @@ html {
 }
 
 .nav {
+  background-color: yellow;
   .navbar-brand {}
   .navbar-nav .nav-item .nav-link {
     font-weight: 600;
@@ -27,10 +33,11 @@ html {
     width: 100%;
   }
   @media (min-width: 701px){
+    z-index: 16777271;
     text-align: center;
     display: flex;
     flex-direction: column;
-    width: 17rem;
+    width: 25%;
     height: 100vh;
 
     .navbar-brand {
@@ -82,16 +89,22 @@ html {
   }
 }
 //problem ewith nav immediately collapsing on mobile solved?:
+
+.carousel-container {
+  background-color: green;
+  height: inherit;
+}
+
 .collapse {
   display: block !important;
 }
 
 .carousel {
-  height: 100%;
+  height: inherit;
 }
 
 .carousel-item {
-  height: 100%;
+  height: inherit;
   img {
     min-width: 100%;
     max-height: 1000px;
