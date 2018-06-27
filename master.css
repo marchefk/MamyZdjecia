@@ -70,8 +70,12 @@ html {
       padding-top: 15%; } }
 
 .carousel-container {
-  background-color: green;
   height: inherit; }
+  @media (min-width: 701px) {
+    .carousel-container {
+      width: 75%;
+      position: absolute;
+      right: 0px; } }
 
 .collapse {
   display: block !important; }
@@ -84,8 +88,6 @@ html {
   .carousel-item img {
     min-width: 100%;
     max-height: 1000px;
-    position: relative;
-    right: 0px;
-    bottom: 0px; }
+    align: right; }
 
 /*# sourceMappingURL=master.css.map */
