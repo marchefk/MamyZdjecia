@@ -4,23 +4,47 @@ html {
   width: 100%;
   margin: 0;
   box-sizing: border-box;
-  background-color: lightblue; }
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: #e8e8e9; }
+
+h1, h2 {
+  font-family: 'Lato', sans-serif; }
 
 .landing-container {
-  background-color: pink; }
+  background-color: #e8e8e9; }
 
 .landing-content {
   padding: 5% 10%;
   text-align: center; }
-  @media (min-width: 500px) {
+  @media (min-width: 600px) {
     .landing-content {
-      margin-right: 45%; } }
+      margin-right: 45%;
+      padding: 15%; } }
+
+.btn {
+  background-color: inherit;
+  padding: 3px 6px;
+  color: #f7941e;
+  border: 1px solid #f7941e;
+  border-radius: 0;
+  margin: 0 6px; }
+  .btn:hover {
+    background-color: #f7941e;
+    color: #e8e8e9; }
+
+.icon {
+  width: 25px;
+  height: 25px;
+  margin: 10% 5px; }
 
 .nav {
-  background-color: yellow; }
+  background-color: #e8e8e9; }
   .nav .navbar-nav .nav-item .nav-link {
     font-weight: 600;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    color: #343d48; }
+    .nav .navbar-nav .nav-item .nav-link.active {
+      color: #f7941e; }
   @media (max-width: 700px) {
     .nav {
       position: fixed;
@@ -69,6 +93,9 @@ html {
     .full {
       padding-top: 15%; } }
 
+.collapse {
+  display: block !important; }
+
 .carousel-container {
   height: inherit; }
   @media (min-width: 701px) {
@@ -77,17 +104,36 @@ html {
       position: absolute;
       right: 0px; } }
 
-.collapse {
-  display: block !important; }
-
 .carousel {
+  height: inherit; }
+
+.carousel-inner {
   height: inherit; }
 
 .carousel-item {
   height: inherit; }
   .carousel-item img {
     min-width: 100%;
-    max-height: 1000px;
-    align: right; }
+    height: inherit; }
+
+.about-content {
+  height: inherit; }
+  @media (min-width: 701px) {
+    .about-content {
+      width: 75%;
+      position: absolute;
+      right: 0px; } }
+
+.about-text {
+  text-align: justify; }
+  @media (min-width: 701px) {
+    .about-text {
+      padding: 180px 80px; } }
+
+.about-img {
+  height: inherit;
+  background-image: url("/img/about.png");
+  background-repeat: no-repeat;
+  background-size: contain; }
 
 /*# sourceMappingURL=master.css.map */
