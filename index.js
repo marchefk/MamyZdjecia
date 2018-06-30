@@ -14,7 +14,7 @@ $(window).scroll(function() {
   }
 });
 
-let getPictures = (category, containerID) => {
+let getHomePictures = (category, containerID) => {
   $.getJSON(`${url}/list/${category}.json`, function (data) {
     for(let i = 0; i < data.resources.length; i++){
       let imgData = data.resources[i];
@@ -33,7 +33,23 @@ let getPictures = (category, containerID) => {
   })
 }
 
-getPictures('home', '#home_gallery');
+let getPictures = (category, containerID) => {
+  $.getJSON(`${url}/list/${category}.json`, function (data) {
+    for (let i = 0; i < data.resources.length; i++){
+      let imgData = data.resources[i];
+      let newDiv = document.createElement('div');
+      newDiv.setAttribute('class', 'category-div');
+      let newImg = document.createElement('img');
+      newImg.setAttribute('class', 'img-fluid');
+      newImg.setAttribute('src', `${url}/upload/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
+      $(containerID).append(newDiv);
+      $(newDiv).append(newImg);
+    }
+  })
+}
+
+getHomePictures('home', '#home_gallery');
+getPictures('ciazowa', '#gallery_ciazowa');
 
 
 // Smooth scrolling using jQuery easing
@@ -60,11 +76,11 @@ $('body').scrollspy({
   target: '#nav'
 });
 
-$(window).resize(function() {
-  landingHeight = $("#landing").height();
-  if ($("#nav").hasClass("fixed")) {
-    $("#nav").removeClass("fixed");
-  }
-});
+// $(window).resize(function() {
+//   landingHeight = $("#landing").height();
+//   if ($("#nav").hasClass("fixed")) {
+//     $("#nav").removeClass("fixed");
+//   }
+// });
 
 // 313573526563941
