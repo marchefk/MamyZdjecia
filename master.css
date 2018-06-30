@@ -57,7 +57,7 @@ h2 {
       text-align: center;
       display: flex;
       flex-direction: column;
-      width: 25%;
+      width: 30%;
       height: 100vh; }
       .nav .navbar-brand {
         display: flex;
@@ -102,7 +102,7 @@ h2 {
   height: inherit; }
   @media (min-width: 701px) {
     .carousel-container {
-      width: 75%;
+      width: 70%;
       position: absolute;
       right: 0; } }
 
@@ -115,16 +115,16 @@ h2 {
 .carousel-item {
   height: inherit; }
   .carousel-item img {
-    min-width: 100%;
     height: inherit; }
 
 .about-content {
   height: inherit; }
   @media (min-width: 701px) {
     .about-content {
-      width: 75%;
+      width: 60%;
       position: absolute;
-      right: 0; } }
+      right: 0;
+      margin-right: 10%; } }
 
 .about-text {
   text-align: justify; }
@@ -136,18 +136,24 @@ h2 {
   height: inherit;
   background-image: url("/img/about.png");
   background-repeat: no-repeat;
-  background-size: contain; }
+  background-size: contain;
+  background-position: center right; }
 
 @media (min-width: 701px) {
   .gallery-container {
-    width: 75%;
+    width: 60%;
     position: absolute;
-    right: 0; } }
+    right: 0;
+    margin-right: 10%; } }
 
 .main-gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; }
+  justify-content: flex-end; }
+
+.item {
+  margin-bottom: 20px;
+  margin-left: 20px; }
 
 .hovereffect {
   width: 100%;
@@ -184,7 +190,7 @@ h2 {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     padding: 10px;
-    line-height: 180px; }
+    line-height: 240px; }
   .hovereffect a .info {
     text-decoration: none;
     display: inline-block;

@@ -73,7 +73,7 @@ h2 {
     text-align: center;
     display: flex;
     flex-direction: column;
-    width: 25%;
+    width: 30%;
     height: 100vh;
 
     .navbar-brand {
@@ -137,7 +137,7 @@ h2 {
 .carousel-container {
   height: inherit;
   @media (min-width: 701px) {
-    width: 75%;
+    width: 70%;
     position: absolute;
     right: 0;
   }
@@ -155,7 +155,7 @@ h2 {
   height: inherit;
 
   img {
-    min-width: 100%;
+    // min-width: 100%;
     height: inherit;
   }
 }
@@ -164,9 +164,10 @@ h2 {
 .about-content {
   height: inherit;
   @media (min-width: 701px) {
-    width: 75%;
+    width: 60%;
     position: absolute;
     right: 0;
+    margin-right: 10%;
   }
 }
 
@@ -182,14 +183,16 @@ h2 {
   background-image: url("/img/about.png");
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center right;
 }
 // gallery
 
 .gallery-container {
   @media (min-width: 701px) {
-    width: 75%;
+    width: 60%;
     position: absolute;
     right: 0;
+    margin-right: 10%;
   }
 }
 // gallery: main gallery effect:
@@ -197,11 +200,15 @@ h2 {
 .main-gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-end;
+  @media (min-width: 701px) {
+
+  }
 }
 
 .item {
-  // margin: 20px 0px;
+  margin-bottom: 20px;
+  margin-left: 20px;
 }
 
 .hovereffect {
@@ -244,7 +251,7 @@ h2 {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     padding: 10px;
-    line-height: 180px;
+    line-height: 240px;
   }
 
   a {
