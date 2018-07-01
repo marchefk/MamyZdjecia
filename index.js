@@ -15,11 +15,11 @@ $(window).scroll(function() {
 });
 
 let getHomePictures = (category, containerID) => {
-  $.getJSON(`${url}/list/${category}.json`, function (data) {
-    for(let i = 0; i < data.resources.length; i++){
+  $.getJSON(`${url}/list/${category}.json`, function(data) {
+    for (let i = 0; i < data.resources.length; i++) {
       let imgData = data.resources[i];
       let newDiv = document.createElement('div');
-      if (i === 0){
+      if (i === 0) {
         newDiv.setAttribute('class', 'carousel-item active');
       } else {
         newDiv.setAttribute('class', 'carousel-item');
@@ -34,16 +34,21 @@ let getHomePictures = (category, containerID) => {
 }
 
 let getPictures = (category, containerID) => {
-  $.getJSON(`${url}/list/${category}.json`, function (data) {
-    for (let i = 0; i < data.resources.length; i++){
+  $.getJSON(`${url}/list/${category}.json`, function(data) {
+    for (let i = 0; i < data.resources.length; i++) {
       let imgData = data.resources[i];
       let newDiv = document.createElement('div');
       newDiv.setAttribute('class', 'category-div');
+      let newA = document.createElement ('a');
+      newA.setAttribute('href', `${url}/upload/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
+      newA.setAttribute('data-toggle', 'lightbox');
+      newA.setAttribute('data-gallery', `gallery-${category}`);
       let newImg = document.createElement('img');
       newImg.setAttribute('class', 'img-fluid');
       newImg.setAttribute('src', `${url}/upload/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
       $(containerID).append(newDiv);
-      $(newDiv).append(newImg);
+      $(newDiv).append(newA);
+      $(newA).append(newImg);
     }
   })
 }
@@ -74,6 +79,13 @@ $('.js-scroll-trigger').click(function() {
 // Activate scrollspy to add active class to navbar items on scroll
 $('body').scrollspy({
   target: '#nav'
+});
+
+// Bootstrap lighbox plugin
+
+$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+  event.preventDefault();
+  $(this).ekkoLightbox();
 });
 
 // $(window).resize(function() {

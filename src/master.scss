@@ -8,6 +8,7 @@ html {
   box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif;
   background-color: $background-color;
+  z-index: 0;
 }
 
 h1,
@@ -69,7 +70,7 @@ h2 {
     width: 100%;
   }
   @media (min-width: 701px) {
-    z-index: 16777271;
+    z-index: 1;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -323,4 +324,16 @@ h2 {
   width: 300px;
   margin-bottom: 20px;
   margin-left: 20px;
+}
+
+// override ekko-lightbox css:
+
+.modal-content {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.modal-backdrop.show {
+    opacity: .9;
 }

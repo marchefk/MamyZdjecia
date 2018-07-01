@@ -5,7 +5,8 @@ html {
   margin: 0;
   box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif;
-  background-color: #e8e8e9; }
+  background-color: #e8e8e9;
+  z-index: 0; }
 
 h1,
 h2 {
@@ -53,7 +54,7 @@ h2 {
       width: 100%; } }
   @media (min-width: 701px) {
     .nav {
-      z-index: 16777271;
+      z-index: 1;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -247,5 +248,13 @@ h2 {
   width: 300px;
   margin-bottom: 20px;
   margin-left: 20px; }
+
+.modal-content {
+  border: none;
+  border-radius: 0;
+  background-color: transparent; }
+
+.modal-backdrop.show {
+  opacity: .9; }
 
 /*# sourceMappingURL=master.css.map */
