@@ -88,6 +88,20 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event) {
   $(this).ekkoLightbox();
 });
 
+// Show category galleries on clicked navbar or pictures in main gallery
+
+$('.trigger-gallery').on('click', function () {
+  let galleries = document.getElementsByClassName('category-gallery');
+  for (let i = 0; i < galleries.length; i++){
+    if (!($(galleries[i]).hasClass('hidden'))) {
+      $(galleries[i]).addClass('hidden');
+    }
+  }
+  let IDtoShow = this.getAttribute('href');
+  let selectedCategory = document.getElementById(IDtoShow.slice(1));
+  $(selectedCategory).removeClass('hidden');
+});
+
 // $(window).resize(function() {
 //   landingHeight = $("#landing").height();
 //   if ($("#nav").hasClass("fixed")) {
