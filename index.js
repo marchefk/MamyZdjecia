@@ -97,8 +97,8 @@ $('.trigger-gallery').on('click', function () {
       $(galleries[i]).addClass('hidden');
     }
   }
-  let IDtoShow = this.getAttribute('href');
-  let selectedCategory = document.getElementById(IDtoShow.slice(1));
+  let IDtoShow = this.getAttribute('data-toggle');
+  let selectedCategory = document.getElementById(IDtoShow);
   $(selectedCategory).removeClass('hidden');
 });
 
