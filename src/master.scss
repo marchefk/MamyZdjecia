@@ -16,6 +16,8 @@ h2 {
   font-family: 'Lato', sans-serif;
 }
 
+//landing container
+
 .landing-container {
   background-color: $background-color;
 }
@@ -52,6 +54,12 @@ h2 {
 
 .nav {
   background-color: $background-color;
+  padding-bottom: 30px;
+
+  .nav-img {
+    margin: 5% auto 10% auto;
+    width: 100px;
+  }
 
   .navbar-brand {}
 
@@ -60,7 +68,8 @@ h2 {
     color: $font-color;
 
     &.active {
-      color: $secondary;
+      color: white;
+      background-color: $secondary;
     }
   }
   @media (max-width: 700px) {
@@ -70,6 +79,7 @@ h2 {
     width: 100%;
   }
   @media (min-width: 701px) {
+    padding: 0;
     z-index: 1;
     text-align: center;
     display: flex;
@@ -95,6 +105,7 @@ h2 {
       flex-grow: 0;
       width: 100%;
       margin-bottom: auto;
+      flex-direction: column;
 
       .navbar-nav {
         flex-direction: column;
@@ -109,6 +120,12 @@ h2 {
         }
       }
     }
+  }
+  .nav-footer {
+    margin: auto;
+  }
+  .icons {
+    margin-top: 30px;
   }
 }
 
@@ -340,4 +357,15 @@ h2 {
 
 .hidden {
   display: none;
+}
+
+//clear fix
+
+.cf:before, .cf:after {
+  content: "";
+  line-height: 0;
+}
+
+.cf:after {
+  clear: both;
 }

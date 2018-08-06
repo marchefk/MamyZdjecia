@@ -55,6 +55,7 @@ let getPictures = (category, containerID) => {
 
 getHomePictures('home', '#home_gallery');
 getPictures('ciazowa', '#gallery_ciazowa');
+getPictures('rodzinna', '#gallery_rodzinna');
 
 
 // Smooth scrolling using jQuery easing
