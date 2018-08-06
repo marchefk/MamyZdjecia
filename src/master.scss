@@ -55,17 +55,19 @@ h2 {
 .nav {
   background-color: $background-color;
   padding-bottom: 30px;
+  font-size: .9rem;
+  font-weight: 500;
+  color: $font-color;
 
   .nav-img {
-    margin: 5% auto 10% auto;
+    margin: 10% 0 15% 30%;
     width: 100px;
   }
 
   .navbar-brand {}
 
   .navbar-nav .nav-item .nav-link {
-    font-weight: 600;
-    color: $font-color;
+    color: inherit;
 
     &.active {
       color: white;
@@ -77,15 +79,6 @@ h2 {
     top: 0;
     right: 0;
     width: 100%;
-  }
-  @media (min-width: 701px) {
-    padding: 0;
-    z-index: 1;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    height: 100vh;
 
     .navbar-brand {
       display: flex;
@@ -98,6 +91,15 @@ h2 {
         border: 0.5rem solid fade-out(white, 0.8);
       }
     }
+  }
+
+  @media (min-width: 701px) {
+    padding: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100vh;
 
     .navbar-collapse {
       display: flex;
@@ -116,17 +118,23 @@ h2 {
 
           .nav-link {
             display: block;
+            padding: .3rem 30%;
+          }
+
+          .inner-nav{
+            padding-left: 35%;
           }
         }
       }
     }
   }
-  .nav-footer {
-    margin: auto;
+  .nav-footer{
+    margin-left: 30%;
+    .icon {
+      margin: 70px 0 10% 0;
+    }
   }
-  .icons {
-    margin-top: 30px;
-  }
+
 }
 
 .fixed {

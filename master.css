@@ -41,13 +41,15 @@ h2 {
 
 .nav {
   background-color: #e8e8e9;
-  padding-bottom: 30px; }
+  padding-bottom: 30px;
+  font-size: .9rem;
+  font-weight: 500;
+  color: #343d48; }
   .nav .nav-img {
-    margin: 5% auto 10% auto;
+    margin: 10% 0 15% 30%;
     width: 100px; }
   .nav .navbar-nav .nav-item .nav-link {
-    font-weight: 600;
-    color: #343d48; }
+    color: inherit; }
     .nav .navbar-nav .nav-item .nav-link.active {
       color: white;
       background-color: #f7941e; }
@@ -56,16 +58,7 @@ h2 {
       position: fixed;
       top: 0;
       right: 0;
-      width: 100%; } }
-  @media (min-width: 701px) {
-    .nav {
-      padding: 0;
-      z-index: 1;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      width: 30%;
-      height: 100vh; }
+      width: 100%; }
       .nav .navbar-brand {
         display: flex;
         margin: auto auto 0;
@@ -73,7 +66,15 @@ h2 {
         .nav .navbar-brand .img-profile {
           max-width: 10rem;
           max-height: 10rem;
-          border: 0.5rem solid rgba(255, 255, 255, 0.2); }
+          border: 0.5rem solid rgba(255, 255, 255, 0.2); } }
+  @media (min-width: 701px) {
+    .nav {
+      padding: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      height: 100vh; }
       .nav .navbar-collapse {
         display: flex;
         align-items: flex-start;
@@ -87,11 +88,14 @@ h2 {
           .nav .navbar-collapse .navbar-nav .nav-item {
             display: block; }
             .nav .navbar-collapse .navbar-nav .nav-item .nav-link {
-              display: block; } }
+              display: block;
+              padding: .3rem 30%; }
+            .nav .navbar-collapse .navbar-nav .nav-item .inner-nav {
+              padding-left: 35%; } }
   .nav .nav-footer {
-    margin: auto; }
-  .nav .icons {
-    margin-top: 30px; }
+    margin-left: 30%; }
+    .nav .nav-footer .icon {
+      margin: 70px 0 10% 0; }
 
 .fixed {
   position: fixed;
