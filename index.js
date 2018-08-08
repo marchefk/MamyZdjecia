@@ -39,7 +39,7 @@ let getPictures = (category, containerID) => {
       let imgData = data.resources[i];
       let newDiv = document.createElement('div');
       newDiv.setAttribute('class', 'category-div');
-      let newA = document.createElement ('a');
+      let newA = document.createElement('a');
       newA.setAttribute('href', `${url}/upload/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
       newA.setAttribute('data-toggle', 'lightbox');
       newA.setAttribute('data-gallery', `gallery-${category}`);
@@ -91,9 +91,9 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event) {
 
 // Show category galleries on clicked navbar or pictures in main gallery
 
-$('.trigger-gallery').on('click', function () {
+$('.trigger-gallery').on('click', function() {
   let galleries = document.getElementsByClassName('category-gallery');
-  for (let i = 0; i < galleries.length; i++){
+  for (let i = 0; i < galleries.length; i++) {
     if (!($(galleries[i]).hasClass('hidden'))) {
       $(galleries[i]).addClass('hidden');
     }
@@ -102,6 +102,22 @@ $('.trigger-gallery').on('click', function () {
   let selectedCategory = document.getElementById(IDtoShow);
   $(selectedCategory).removeClass('hidden');
 });
+
+// Show categories in nav after clicking 'gallery'
+
+let toggleHiddenClass = (elements) => {
+  return function(e) {
+    $(elements).each(function(i) {
+      if ($(this).hasClass('hidden')) {
+        $(this).removeClass('hidden');
+      } else {
+        $(this).addClass('hidden');
+      }
+    })
+  }
+}
+
+$('#nav_gallery').on('click', toggleHiddenClass('.nav-category'));
 
 // $(window).resize(function() {
 //   landingHeight = $("#landing").height();

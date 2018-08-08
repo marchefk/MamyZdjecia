@@ -124,6 +124,10 @@ h2 {
           .inner-nav{
             padding-left: 35%;
           }
+          
+          &.hidden {
+            display: none;
+          }
         }
       }
     }
@@ -216,18 +220,17 @@ h2 {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
   @media (min-width: 701px) {
-    width: 60%;
-    position: absolute;
-    right: 0;
-    margin-right: 10%;
+    margin-left: 30%;
   }
 }
 
 .item {
   margin-bottom: 20px;
-  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .hovereffect {
