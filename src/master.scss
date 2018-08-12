@@ -25,6 +25,12 @@ h2 {
     margin-top: 0;
     margin-bottom: 0;
   }
+  a {
+    color: black;
+    &:hover {
+      color: grey;
+    }
+  }
 }
 
 .landing-content {
@@ -104,6 +110,7 @@ h2 {
     flex-direction: column;
     width: 30%;
     height: 100vh;
+    float: left;
 
     .navbar-collapse {
       display: flex;
@@ -198,7 +205,7 @@ h2 {
   height: inherit;
 
   img {
-    // min-width: 100%;
+    max-width: 100%;
     height: inherit;
   }
 }
@@ -227,7 +234,7 @@ h2 {
 
 .about-img {
   height: inherit;
-  background-image: url("/img/about.png");
+  background-image: url("img/about.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center right;
