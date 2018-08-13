@@ -1,5 +1,5 @@
-let landingHeight = $("#landing").height();
-let minWidth = window.matchMedia("(min-width: 701px)");
+let landingHeight = $("#landing").outerHeight();
+let minWidth = window.matchMedia("(min-width: 991px)");
 let url = 'https://res.cloudinary.com/marchefk/image';
 
 // Fixed sidebar on big screen
@@ -119,11 +119,8 @@ let toggleHiddenClass = (elements) => {
 
 $('#nav_gallery').on('click', toggleHiddenClass('.nav-category'));
 
-// $(window).resize(function() {
-//   landingHeight = $("#landing").height();
-//   if ($("#nav").hasClass("fixed")) {
-//     $("#nav").removeClass("fixed");
-//   }
-// });
+$(window).resize(function() {
+  landingHeight = $("#landing").height();
+});
 
 // 313573526563941

@@ -1,12 +1,15 @@
+*, *:before, *:after {
+  box-sizing: inherit; }
+
 body,
 html {
   height: 100%;
   width: 100%;
   margin: 0;
-  box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif;
   background-color: white;
-  z-index: 0; }
+  z-index: 0;
+  box-sizing: border-box; }
 
 h1,
 h2 {
@@ -16,7 +19,8 @@ h2 {
   background-color: #e8e8e9; }
   .landing-container.full {
     margin-top: 0;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    padding-bottom: 60px; }
   .landing-container a {
     color: black; }
     .landing-container a:hover {
@@ -116,10 +120,10 @@ h2 {
   width: 100%;
   margin-bottom: 120px;
   margin-top: 120px; }
-  @media (max-width: 990px) {
+  @media (max-width: 991px) {
     .full {
       padding-top: 15%; } }
-  @media (min-width: 991px) {
+  @media (min-width: 992px) {
     .full {
       height: 100%; } }
 
@@ -128,6 +132,11 @@ h2 {
 
 .home-container {
   background-color: #e8e8e9; }
+  .home-container.full {
+    margin-top: 0; }
+    @media (min-width: 992px) {
+      .home-container.full {
+        min-height: 100%; } }
 
 .carousel-container {
   margin-bottom: 120px;
@@ -147,8 +156,7 @@ h2 {
 .carousel-item {
   height: inherit; }
   .carousel-item img {
-    max-width: 100%;
-    height: inherit; }
+    max-width: 100%; }
 
 .about-container {
   background-color: white; }
