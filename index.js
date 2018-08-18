@@ -92,6 +92,9 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event) {
 // Show category galleries on clicked navbar or pictures in main gallery
 
 $('.trigger-gallery').on('click', function() {
+  if($('.category-container').css('height') === 0){
+    $('.category-container').css('height', '100%');
+  }
   let galleries = document.getElementsByClassName('category-gallery');
   for (let i = 0; i < galleries.length; i++) {
     if (!($(galleries[i]).hasClass('hidden'))) {
