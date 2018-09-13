@@ -21,6 +21,9 @@ h2 {
     margin-top: 0;
     margin-bottom: 0;
     padding-bottom: 60px; }
+    @media (max-width: 600px) {
+      .landing-container.full {
+        min-height: 100%; } }
   .landing-container a {
     color: black; }
     .landing-container a:hover {
@@ -29,7 +32,12 @@ h2 {
 .landing-content {
   padding: 0 10%;
   text-align: center; }
-  @media (min-width: 600px) {
+  @media (max-width: 991px) {
+    .landing-content {
+      padding: 25% 10%;
+      text-align: center;
+      font-size: 130%; } }
+  @media (min-width: 992px) {
     .landing-content {
       margin-right: 45%;
       padding: 15%; } }
