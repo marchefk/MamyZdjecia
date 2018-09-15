@@ -72,12 +72,13 @@ h2 {
     .nav .navbar-nav .nav-item .nav-link.active {
       color: white;
       background-color: #f7941e; }
-  @media (max-width: 700px) {
+  @media (max-width: 991px) {
     .nav {
       position: fixed;
       top: 0;
       right: 0;
-      width: 100%; }
+      width: 100%;
+      z-index: 100; }
       .nav .navbar-brand {
         display: flex;
         margin: auto auto 0;
@@ -134,9 +135,6 @@ h2 {
   @media (min-width: 992px) {
     .full {
       height: 100%; } }
-
-.collapse {
-  display: block !important; }
 
 .home-container {
   background-color: #e8e8e9; }
@@ -309,6 +307,8 @@ h2 {
       float: right; } }
 
 .category-gallery {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
