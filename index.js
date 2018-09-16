@@ -25,7 +25,7 @@ let getHomePictures = (category, containerID) => {
         newDiv.setAttribute('class', 'carousel-item');
       }
       let newImg = document.createElement('img');
-      newImg.setAttribute('src', `${url}/upload/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
+      newImg.setAttribute('src', `${url}/upload/f_auto/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
       newImg.setAttribute('class', 'd-block');
       $(containerID).append(newDiv);
       $(newDiv).append(newImg);
@@ -40,12 +40,12 @@ let getPictures = (category, containerID) => {
       let newDiv = document.createElement('div');
       newDiv.setAttribute('class', 'category-div');
       let newA = document.createElement('a');
-      newA.setAttribute('href', `${url}/upload/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
+      newA.setAttribute('href', `${url}/upload/f_auto/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
       newA.setAttribute('data-toggle', 'lightbox');
       newA.setAttribute('data-gallery', `gallery-${category}`);
       let newImg = document.createElement('img');
       newImg.setAttribute('class', 'img-fluid');
-      newImg.setAttribute('src', `${url}/upload/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
+      newImg.setAttribute('src', `${url}/upload/f_auto/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
       $(containerID).append(newDiv);
       $(newDiv).append(newA);
       $(newA).append(newImg);
