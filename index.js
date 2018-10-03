@@ -99,6 +99,7 @@ $('.trigger-gallery').on('click', function() {
   for (let i = 0; i < galleries.length; i++) {
     if (!($(galleries[i]).hasClass('hidden'))) {
       $(galleries[i]).addClass('transfer');
+      $(galleries[i]).addClass('hidden');
     }
   }
   let IDtoShow = this.getAttribute('data-toggle');
