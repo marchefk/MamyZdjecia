@@ -98,12 +98,13 @@ $('.trigger-gallery').on('click', function() {
   let galleries = document.getElementsByClassName('category-gallery');
   for (let i = 0; i < galleries.length; i++) {
     if (!($(galleries[i]).hasClass('hidden'))) {
-      $(galleries[i]).addClass('hidden');
+      $(galleries[i]).addClass('transfer');
     }
   }
   let IDtoShow = this.getAttribute('data-toggle');
   let selectedCategory = document.getElementById(IDtoShow);
   $(selectedCategory).removeClass('hidden');
+  setTimeout(() => { $(selectedCategory).removeClass('transfer')(); }, 1000);
 });
 
 // Show categories in nav after clicking 'gallery'

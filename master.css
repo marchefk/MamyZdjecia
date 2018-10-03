@@ -16,7 +16,7 @@ h2 {
   font-family: 'Lato', sans-serif; }
 
 .landing-container {
-  background-color: #e8e8e9; }
+  background-color: #f3f3f4; }
   .landing-container.full {
     margin-top: 0;
     margin-bottom: 0;
@@ -51,7 +51,7 @@ h2 {
   margin: 0 6px; }
   .btn:hover {
     background-color: #f7941e;
-    color: #e8e8e9; }
+    color: #f3f3f4; }
 
 .icon {
   width: 25px;
@@ -59,7 +59,7 @@ h2 {
   margin: 10% 5px; }
 
 .nav {
-  background-color: #f3f3f4;
+  background-color: #e8e8e9;
   padding-bottom: 30px;
   font-size: 0.9rem;
   font-weight: 500;
@@ -137,7 +137,7 @@ h2 {
       height: 100%; } }
 
 .home-container {
-  background-color: #e8e8e9; }
+  background-color: #f3f3f4; }
   .home-container.full {
     margin-top: 0; }
     @media (min-width: 992px) {
@@ -189,7 +189,7 @@ h2 {
   background-position: center right; }
 
 .main-gallery {
-  background-color: #e8e8e9;
+  background-color: #f3f3f4;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -307,8 +307,7 @@ h2 {
       float: right; } }
 
 .category-gallery {
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  transition: opacity 2s ease-in 50ms;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -328,6 +327,12 @@ h2 {
 
 .modal-backdrop.show {
   opacity: 0.9; }
+
+.offer-container.full {
+  margin-bottom: 0px; }
+
+.transfer {
+  opacity: 0; }
 
 .hidden {
   display: none; }
