@@ -1,15 +1,16 @@
 let landingHeight = $("#landing").outerHeight();
 let minWidth = window.matchMedia("(min-width: 991px)");
-let url = 'https://res.cloudinary.com/marchefk/image';
+const url = 'https://res.cloudinary.com/marchefk/image';
+const nav = document.getElementById('nav');
 
 // Fixed sidebar on big screen
-$(window).scroll(function() {
+window.addEventListener('scroll', () => {
   if (minWidth.matches) {
-    let scroll = $(window).scrollTop();
+    let scroll = window.scrollY;
     if (scroll >= landingHeight) {
-      $("#nav").addClass("fixed");
+      nav.classList.add('fixed');
     } else {
-      $("#nav").removeClass("fixed");
+      nav.classList.remove('fixed');
     }
   }
 });
@@ -27,11 +28,13 @@ let getHomePictures = (category, containerID) => {
       let newImg = document.createElement('img');
       newImg.setAttribute('src', `${url}/upload/f_auto/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
       newImg.setAttribute('class', 'd-block');
-      $(containerID).append(newDiv);
-      $(newDiv).append(newImg);
+      document.getElementById(containerID).append(newDiv);
+      newDiv.append(newImg);
     }
   })
 }
+
+
 
 let getPictures = (category, containerID) => {
   $.getJSON(`${url}/list/${category}.json`, function(data) {
@@ -46,16 +49,16 @@ let getPictures = (category, containerID) => {
       let newImg = document.createElement('img');
       newImg.setAttribute('class', 'img-fluid');
       newImg.setAttribute('src', `${url}/upload/f_auto/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
-      $(containerID).append(newDiv);
-      $(newDiv).append(newA);
-      $(newA).append(newImg);
+      document.getElementById(containerID).append(newDiv);
+      newDiv.append(newA);
+      newA.append(newImg);
     }
   })
 }
 
-getHomePictures('home', '#home_gallery');
-getPictures('ciazowa', '#gallery_ciazowa');
-getPictures('rodzinna', '#gallery_rodzinna');
+getHomePictures('home', 'home_gallery');
+getPictures('ciazowa', 'gallery_ciazowa');
+getPictures('rodzinna', 'gallery_rodzinna');
 
 
 // Smooth scrolling using jQuery easing
@@ -105,7 +108,7 @@ $('.trigger-gallery').on('click', function() {
   let IDtoShow = this.getAttribute('data-toggle');
   let selectedCategory = document.getElementById(IDtoShow);
   $(selectedCategory).removeClass('hidden');
-  setTimeout(() => { $(selectedCategory).removeClass('transfer')(); }, 1000);
+  setTimeout(() => { $(selectedCategory).removeClass('transfer'); }, 1000);
 });
 
 // Show categories in nav after clicking 'gallery'
