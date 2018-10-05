@@ -259,7 +259,7 @@ h2 {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   align-content: center;
   @media (min-width: 992px) {
@@ -359,6 +359,7 @@ h2 {
   //-webkit-transition: all 0.2s ease-in-out;
   //transition: all 0.2s ease-in-out;
   transition: opacity 2s ease-in 50ms;
+  -webkit-transition: opacity 2s ease-in 50ms;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

@@ -15,6 +15,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Get home pictures and make into a carousel
 let getHomePictures = (category, containerID) => {
   $.getJSON(`${url}/list/${category}.json`, function(data) {
     for (let i = 0; i < data.resources.length; i++) {
@@ -34,8 +35,7 @@ let getHomePictures = (category, containerID) => {
   })
 }
 
-
-
+// Get pictures for respective categories
 let getPictures = (category, containerID) => {
   $.getJSON(`${url}/list/${category}.json`, function(data) {
     for (let i = 0; i < data.resources.length; i++) {
@@ -55,11 +55,6 @@ let getPictures = (category, containerID) => {
     }
   })
 }
-
-getHomePictures('home', 'home_gallery');
-getPictures('ciazowa', 'gallery_ciazowa');
-getPictures('rodzinna', 'gallery_rodzinna');
-
 
 // Smooth scrolling using jQuery easing
 $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
@@ -85,15 +80,13 @@ $('body').scrollspy({
   target: '#nav'
 });
 
-// Bootstrap lighbox plugin
-
+// Bootstrap lightbox plugin
 $(document).on('click', '[data-toggle="lightbox"]', function(event) {
   event.preventDefault();
   $(this).ekkoLightbox();
 });
 
 // Show category galleries on clicked navbar or pictures in main gallery
-
 $('.trigger-gallery').on('click', function() {
   if($('.category-container').css('height') === 0){
     $('.category-container').css('height', '100%');
@@ -112,7 +105,6 @@ $('.trigger-gallery').on('click', function() {
 });
 
 // Show categories in nav after clicking 'gallery'
-
 let toggleHiddenClass = (elements) => {
   return function(e) {
     $(elements).each(function(i) {
@@ -124,6 +116,10 @@ let toggleHiddenClass = (elements) => {
     })
   }
 }
+
+getHomePictures('home', 'home_gallery');
+getPictures('ciazowa', 'gallery_ciazowa');
+getPictures('rodzinna', 'gallery_rodzinna');
 
 $('#nav_gallery').on('click', toggleHiddenClass('.nav-category'));
 
