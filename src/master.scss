@@ -67,6 +67,9 @@ h2 {
     background-color: $secondary;
     color: $background-color;
   }
+  &:focus, &.focus {
+    box-shadow: none;
+  }
 }
 
 .icon {
@@ -96,6 +99,7 @@ h2 {
     &.active {
       color: white;
       background-color: $secondary;
+      font-weight: 600;
     }
   }
   @media (max-width: 991px) {
@@ -160,6 +164,15 @@ h2 {
 
   .nav-footer {
     margin-left: 30%;
+    @media(min-width: 992px){
+      position: absolute;
+      &.footer-icons {
+        bottom: 150px;
+      }
+      &.footer-info {
+        bottom: 60px;
+      }
+    }
 
     .icon {
       margin: 70px 0 10%;
