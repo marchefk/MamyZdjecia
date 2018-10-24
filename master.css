@@ -70,7 +70,8 @@ h2 {
     margin: 10% 0 15% 30%;
     width: 100px; }
   .nav .navbar-nav .nav-item .nav-link {
-    color: inherit; }
+    color: inherit;
+    cursor: pointer; }
     .nav .navbar-nav .nav-item .nav-link.active {
       color: white;
       background-color: #f7941e;
@@ -127,8 +128,8 @@ h2 {
           bottom: 150px; }
         .nav .nav-footer.footer-info {
           bottom: 60px; } }
-    .nav .nav-footer .icon {
-      margin: 70px 0 10%; }
+    .nav .nav-footer .footer-inst {
+      margin-left: 0; }
 
 .fixed {
   position: fixed;
@@ -248,7 +249,7 @@ h2 {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     padding: 10px;
-    line-height: 240px; }
+    line-height: 210px; }
   .hovereffect a .info {
     text-decoration: none;
     display: inline-block;
@@ -347,13 +348,5 @@ h2 {
 
 .hidden {
   display: none; }
-
-.cf:after,
-.cf:before {
-  content: "";
-  line-height: 0; }
-
-.cf:after {
-  clear: both; }
 
 /*# sourceMappingURL=master.css.map */

@@ -2,6 +2,7 @@ let landingHeight = $("#landing").outerHeight();
 let minWidth = window.matchMedia("(min-width: 991px)");
 const url = 'https://res.cloudinary.com/marchefk/image';
 const nav = document.getElementById('nav');
+let loadedCategories = [];
 
 // Fixed sidebar on big screen
 window.addEventListener('scroll', () => {
@@ -36,16 +37,24 @@ let getHomePictures = (category, containerID) => {
 }
 
 // Get pictures for respective categories
-let getPictures = (category, containerID) => {
+let getPictures = (containerID) => {
+  if (loadedCategories.indexOf(containerID) !== -1){
+    return;
+  }
+
+  loadedCategories.push(containerID);
+  let category = containerID.slice(8, containerID.length);
   $.getJSON(`${url}/list/${category}.json`, function(data) {
     for (let i = 0; i < data.resources.length; i++) {
       let imgData = data.resources[i];
       let newDiv = document.createElement('div');
       newDiv.setAttribute('class', 'category-div');
+
       let newA = document.createElement('a');
       newA.setAttribute('href', `${url}/upload/f_auto/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
       newA.setAttribute('data-toggle', 'lightbox');
       newA.setAttribute('data-gallery', `gallery-${category}`);
+
       let newImg = document.createElement('img');
       newImg.setAttribute('class', 'img-fluid');
       newImg.setAttribute('src', `${url}/upload/f_auto/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
@@ -94,13 +103,16 @@ $('.trigger-gallery').on('click', function() {
   let galleries = document.getElementsByClassName('category-gallery');
   for (let i = 0; i < galleries.length; i++) {
     if (!($(galleries[i]).hasClass('hidden'))) {
+      $(galleries[i]).removeClass('full');
       $(galleries[i]).addClass('transfer');
       $(galleries[i]).addClass('hidden');
     }
   }
   let IDtoShow = this.getAttribute('data-toggle');
+  getPictures(IDtoShow);
   let selectedCategory = document.getElementById(IDtoShow);
   $(selectedCategory).removeClass('hidden');
+  $(selectedCategory).addClass('full');
   setTimeout(() => { $(selectedCategory).removeClass('transfer'); }, 1000);
 });
 
@@ -117,9 +129,17 @@ let toggleHiddenClass = (elements) => {
   }
 }
 
+let navCategories = document.getElementsByClassName('inner-nav');
+let categoryGallery = document.getElementById('category_gallery');
+for (let i = 0; i < navCategories.length; i++){
+  navCategories[i].addEventListener('click', () => {
+    categoryGallery.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+  }, false);
+}
+
 getHomePictures('home', 'home_gallery');
-getPictures('ciazowa', 'gallery_ciazowa');
-getPictures('rodzinna', 'gallery_rodzinna');
+// getPictures('gallery_ciazowa');
+// getPictures('gallery_rodzinna');
 
 $('#nav_gallery').on('click', toggleHiddenClass('.nav-category'));
 

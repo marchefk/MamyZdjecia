@@ -95,6 +95,7 @@ h2 {
 
   .navbar-nav .nav-item .nav-link {
     color: inherit;
+    cursor: pointer;
 
     &.active {
       color: white;
@@ -174,8 +175,8 @@ h2 {
       }
     }
 
-    .icon {
-      margin: 70px 0 10%;
+    .footer-inst {
+      margin-left: 0;
     }
   }
 }
@@ -324,7 +325,7 @@ h2 {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     padding: 10px;
-    line-height: 240px;
+    line-height: 210px;
   }
 
   a {
@@ -413,13 +414,13 @@ h2 {
   display: none;
 }
 
-//clear fix
-.cf:after,
-.cf:before {
-  content: "";
-  line-height: 0;
-}
-
-.cf:after {
-  clear: both;
-}
+// clear fix
+// .cf:after,
+// .cf:before {
+//   content: "";
+//   line-height: 0;
+// }
+//
+// .cf:after {
+//   clear: both;
+// }
