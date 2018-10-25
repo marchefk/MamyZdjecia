@@ -1,20 +1,11 @@
+"use strict";
+
 let landingHeight = $("#landing").outerHeight();
 let minWidth = window.matchMedia("(min-width: 991px)");
 const url = 'https://res.cloudinary.com/marchefk/image';
 const nav = document.getElementById('nav');
 let loadedCategories = [];
 
-// Fixed sidebar on big screen
-window.addEventListener('scroll', () => {
-  if (minWidth.matches) {
-    let scroll = window.scrollY;
-    if (scroll >= landingHeight) {
-      nav.classList.add('fixed');
-    } else {
-      nav.classList.remove('fixed');
-    }
-  }
-});
 
 // Get home pictures and make into a carousel
 let getHomePictures = (category, containerID) => {
@@ -65,6 +56,31 @@ let getPictures = (containerID) => {
   })
 }
 
+// Show categories in nav after clicking 'gallery'
+let toggleHiddenClass = (elements) => {
+  return function(e) {
+    $(elements).each(function(i) {
+      if ($(this).hasClass('hidden')) {
+        $(this).removeClass('hidden');
+      } else {
+        $(this).addClass('hidden');
+      }
+    })
+  }
+}
+
+// Fixed sidebar on big screen
+window.addEventListener('scroll', () => {
+  if (minWidth.matches) {
+    let scroll = window.scrollY;
+    if (scroll >= landingHeight) {
+      nav.classList.add('fixed');
+    } else {
+      nav.classList.remove('fixed');
+    }
+  }
+});
+
 // Smooth scrolling using jQuery easing
 $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
   if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -96,51 +112,47 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event) {
 });
 
 // Show category galleries on clicked navbar or pictures in main gallery
-$('.trigger-gallery').on('click', function() {
-  if($('.category-container').css('height') === 0){
-    $('.category-container').css('height', '100%');
-  }
-  let galleries = document.getElementsByClassName('category-gallery');
-  for (let i = 0; i < galleries.length; i++) {
-    if (!($(galleries[i]).hasClass('hidden'))) {
-      $(galleries[i]).removeClass('full');
-      $(galleries[i]).addClass('transfer');
-      $(galleries[i]).addClass('hidden');
-    }
-  }
-  let IDtoShow = this.getAttribute('data-toggle');
-  getPictures(IDtoShow);
-  let selectedCategory = document.getElementById(IDtoShow);
-  $(selectedCategory).removeClass('hidden');
-  $(selectedCategory).addClass('full');
-  setTimeout(() => { $(selectedCategory).removeClass('transfer'); }, 1000);
-});
+let triggerGallery = document.getElementsByClassName('trigger-gallery');
+let categoryCont = document.getElementById('category_container');
 
-// Show categories in nav after clicking 'gallery'
-let toggleHiddenClass = (elements) => {
-  return function(e) {
-    $(elements).each(function(i) {
-      if ($(this).hasClass('hidden')) {
-        $(this).removeClass('hidden');
-      } else {
-        $(this).addClass('hidden');
+for (var elem of triggerGallery) {
+  elem.addEventListener('click', function() {
+    if(categoryCont.style.height === '0'){
+      categoryCont.style.height = '100%';
+    }
+
+    let galleries = document.getElementsByClassName('category-gallery');
+    for (var gallery of galleries){
+      if (!gallery.classList.contains('hidden')) {
+        gallery.classList.remove('full');
+        gallery.classList.add('transfer');
+        gallery.classList.add('hidden');
+        //multiple args not supported in all modern browsers
       }
-    })
-  }
+    }
+    let IDtoShow = this.getAttribute('data-toggle');
+    getPictures(IDtoShow);
+    let selectedCategory = document.getElementById(IDtoShow);
+    selectedCategory.classList.remove('hidden');
+    selectedCategory.classList.add('full');
+    setTimeout(() => { selectedCategory.classList.remove('transfer'); }, 1000);
+
+  })
 }
 
+
 let navCategories = document.getElementsByClassName('inner-nav');
-let categoryGallery = document.getElementById('category_gallery');
 for (let i = 0; i < navCategories.length; i++){
   navCategories[i].addEventListener('click', () => {
-    categoryGallery.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+    categoryCont.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest'
+     });
   }, false);
 }
 
 getHomePictures('home', 'home_gallery');
-// getPictures('gallery_ciazowa');
-// getPictures('gallery_rodzinna');
-
 $('#nav_gallery').on('click', toggleHiddenClass('.nav-category'));
 
 $(window).resize(function() {
