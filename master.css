@@ -19,11 +19,13 @@ h2 {
   background-color: #f3f3f4; }
   .landing-container.full {
     margin-top: 0;
-    margin-bottom: 0;
-    padding-bottom: 60px; }
+    margin-bottom: 0; }
     @media (max-width: 600px) {
       .landing-container.full {
         min-height: 100%; } }
+    @media (min-width: 992px) {
+      .landing-container.full {
+        padding-bottom: 60px; } }
   .landing-container a {
     color: black; }
     .landing-container a:hover {
@@ -34,9 +36,9 @@ h2 {
   text-align: center; }
   @media (max-width: 991px) {
     .landing-content {
-      padding: 25% 10%;
+      padding: 100px 10%;
       text-align: center;
-      font-size: 130%; } }
+      font-size: 110%; } }
   @media (min-width: 992px) {
     .landing-content {
       margin-right: 45%;
@@ -62,13 +64,16 @@ h2 {
 
 .nav {
   background-color: #e8e8e9;
-  padding-bottom: 30px;
   font-size: 0.9rem;
   font-weight: 500;
-  color: #343d48; }
+  color: #343d48;
+  padding: 0; }
   .nav .nav-img {
     margin: 10% 0 15% 30%;
     width: 100px; }
+    @media (max-width: 991px) {
+      .nav .nav-img {
+        display: none; } }
   .nav .navbar-nav .nav-item .nav-link {
     color: inherit;
     cursor: pointer; }
@@ -78,6 +83,7 @@ h2 {
       font-weight: 600; }
   @media (max-width: 991px) {
     .nav {
+      text-align: center;
       position: fixed;
       top: 0;
       right: 0;
@@ -85,15 +91,26 @@ h2 {
       z-index: 100; }
       .nav .navbar-brand {
         display: flex;
-        margin: auto auto 0;
+        margin: auto;
+        width: 50%;
         padding: 0.5rem; }
         .nav .navbar-brand .img-profile {
           max-width: 10rem;
           max-height: 10rem;
-          border: 0.5rem solid rgba(255, 255, 255, 0.2); } }
+          border: 0.5rem solid rgba(255, 255, 255, 0.2); }
+      .nav .nav-item {
+        background: #d8d8d8;
+        /* Old browsers */
+        background: -moz-linear-gradient(top, #d8d8d8 0%, #e8e8e9 3%, #e8e8e9 97%, #f2f2f2 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #d8d8d8 0%, #e8e8e9 3%, #e8e8e9 97%, #f2f2f2 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #d8d8d8 0%, #e8e8e9 3%, #e8e8e9 97%, #f2f2f2 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', endColorstr='#f2f2f2',GradientType=0 );
+        /* IE6-9 */ } }
   @media (min-width: 992px) {
     .nav {
-      padding: 0;
       z-index: 1;
       display: flex;
       flex-direction: column;
@@ -119,17 +136,30 @@ h2 {
               padding-left: 35%; }
             .nav .navbar-collapse .navbar-nav .nav-item.hidden {
               display: none; } }
-  .nav .nav-footer {
-    margin-left: 30%; }
-    @media (min-width: 992px) {
-      .nav .nav-footer {
-        position: absolute; }
-        .nav .nav-footer.footer-icons {
-          bottom: 150px; }
-        .nav .nav-footer.footer-info {
-          bottom: 60px; } }
-    .nav .nav-footer .footer-inst {
-      margin-left: 0; }
+  @media (min-width: 992px) {
+    .nav .nav-footer {
+      margin-left: 30%;
+      position: absolute; }
+      .nav .nav-footer.footer-icons {
+        bottom: 150px; }
+      .nav .nav-footer.footer-info {
+        bottom: 60px; } }
+  @media (max-width: 991px) {
+    .nav .nav-footer.footer-icons {
+      background: #d8d8d8;
+      /* Old browsers */
+      background: -moz-linear-gradient(top, #d8d8d8 0%, #e8e8e9 2%);
+      /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, #d8d8d8 0%, #e8e8e9 2%);
+      /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, #d8d8d8 0%, #e8e8e9 2%);
+      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', endColorstr='#e8e8e9',GradientType=0 );
+      /* IE6-9 */ }
+    .nav .nav-footer .icon {
+      margin: 15px 5px; } }
+  .nav .nav-footer .footer-inst {
+    margin-left: 0; }
 
 .fixed {
   position: fixed;
@@ -140,9 +170,6 @@ h2 {
   width: 100%;
   margin-bottom: 120px;
   margin-top: 120px; }
-  @media (max-width: 991px) {
-    .full {
-      padding-top: 15%; } }
   @media (min-width: 992px) {
     .full {
       height: 100%; } }

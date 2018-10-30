@@ -28,9 +28,11 @@ h2 {
   &.full {
     margin-top: 0;
     margin-bottom: 0;
-    padding-bottom: 60px;
     @media (max-width: 600px){
       min-height: 100%;
+    }
+    @media (min-width: 992px){
+      padding-bottom: 60px;
     }
   }
   a {
@@ -45,9 +47,9 @@ h2 {
   padding: 0 10%;
   text-align: center;
   @media (max-width: 991px) {
-    padding: 25% 10%;
+    padding: 100px 10%;
       text-align: center;
-      font-size: 130%;
+      font-size: 110%;
   }
   @media (min-width: 992px) {
     margin-right: 45%;
@@ -81,14 +83,18 @@ h2 {
 
 .nav {
   background-color: $nav-color;
-  padding-bottom: 30px;
+  // padding-bottom: 30px;
   font-size: 0.9rem;
   font-weight: 500;
   color: $font-color;
+  padding: 0;
 
   .nav-img {
     margin: 10% 0 15% 30%;
     width: 100px;
+    @media (max-width: 991px){
+      display: none;
+    }
   }
 
   .navbar-brand {}
@@ -104,6 +110,7 @@ h2 {
     }
   }
   @media (max-width: 991px) {
+    text-align: center;
     position: fixed;
     top: 0;
     right: 0;
@@ -112,7 +119,8 @@ h2 {
 
     .navbar-brand {
       display: flex;
-      margin: auto auto 0;
+      margin: auto;
+      width: 50%;
       padding: 0.5rem;
 
       .img-profile {
@@ -121,9 +129,15 @@ h2 {
         border: 0.5rem solid fade-out(white, 0.8);
       }
     }
+    .nav-item {
+background: #d8d8d8; /* Old browsers */
+background: -moz-linear-gradient(top, #d8d8d8 0%, #e8e8e9 3%, #e8e8e9 97%, #f2f2f2 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #d8d8d8 0%,#e8e8e9 3%,#e8e8e9 97%,#f2f2f2 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #d8d8d8 0%,#e8e8e9 3%,#e8e8e9 97%,#f2f2f2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+    }
   }
   @media (min-width: 992px) {
-    padding: 0;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -164,14 +178,26 @@ h2 {
   }
 
   .nav-footer {
-    margin-left: 30%;
     @media(min-width: 992px){
+      margin-left: 30%;
       position: absolute;
       &.footer-icons {
         bottom: 150px;
       }
       &.footer-info {
         bottom: 60px;
+      }
+    }
+    @media(max-width: 991px){
+      &.footer-icons{
+        background: #d8d8d8; /* Old browsers */
+background: -moz-linear-gradient(top, #d8d8d8 0%, #e8e8e9 2%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #d8d8d8 0%,#e8e8e9 2%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #d8d8d8 0%,#e8e8e9 2%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', endColorstr='#e8e8e9',GradientType=0 ); /* IE6-9 */
+      }
+      .icon {
+        margin: 15px 5px;
       }
     }
 
@@ -191,9 +217,9 @@ h2 {
   width: 100%;
   margin-bottom: 120px;
   margin-top: 120px;
-  @media (max-width: 991px) {
-    padding-top: 15%;
-  }
+  // @media (max-width: 991px) {
+  //   padding-top: 15%;
+  // }
   @media (min-width: 992px) {
     height: 100%;
   }
