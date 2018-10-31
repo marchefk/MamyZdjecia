@@ -14,7 +14,9 @@ html {
   background-color: white;
   z-index: 0;
   box-sizing: border-box;
-  overflow-x: hidden; //fixes issue with empty space on mobile
+  @media (max-width: 991px){
+    overflow-x: hidden; //fixes issue with empty space on mobile
+  }
 }
 
 h1,
@@ -285,6 +287,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', end
 
 .about-container {
   background-color: white;
+  @media (max-width: 992px){
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 
 .content {
@@ -447,6 +453,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', end
 .offer-container {
   &.full {
     margin-bottom: 0px;
+    @media (max-width: 992px){
+      padding-left: 5%;
+      padding-right: 5%;
+    }
   }
 }
 
