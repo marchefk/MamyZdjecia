@@ -9,7 +9,8 @@ html {
   font-family: 'Nunito Sans', sans-serif;
   background-color: white;
   z-index: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  overflow-x: hidden; }
 
 h1,
 h2 {
@@ -22,7 +23,8 @@ h2 {
     margin-bottom: 0; }
     @media (max-width: 600px) {
       .landing-container.full {
-        min-height: 100%; } }
+        min-height: 100%;
+        display: flex; } }
     @media (min-width: 992px) {
       .landing-container.full {
         padding-bottom: 60px; } }
@@ -37,8 +39,12 @@ h2 {
   @media (max-width: 991px) {
     .landing-content {
       padding: 100px 10%;
-      text-align: center;
-      font-size: 110%; } }
+      text-align: center; } }
+  @media (max-width: 600px) {
+    .landing-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; } }
   @media (min-width: 992px) {
     .landing-content {
       margin-right: 45%;
@@ -51,6 +57,10 @@ h2 {
   border: 1px solid #f7941e;
   border-radius: 0;
   margin: 0 6px; }
+  @media (max-width: 991px) {
+    .btn {
+      font-size: 125%;
+      margin: 0 10px; } }
   .btn:hover {
     background-color: #f7941e;
     color: #f3f3f4; }
@@ -61,6 +71,14 @@ h2 {
   width: 25px;
   height: 25px;
   margin: 10% 5px; }
+  @media (max-width: 991px) {
+    .icon {
+      width: 35px;
+      height: 35px;
+      margin: 25px 8px; } }
+  @media (max-width: 600px) {
+    .icon {
+      margin: 10% 8px; } }
 
 .nav {
   background-color: #e8e8e9;

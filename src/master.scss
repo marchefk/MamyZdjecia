@@ -14,6 +14,7 @@ html {
   background-color: white;
   z-index: 0;
   box-sizing: border-box;
+  overflow-x: hidden; //fixes issue with empty space on mobile
 }
 
 h1,
@@ -30,6 +31,7 @@ h2 {
     margin-bottom: 0;
     @media (max-width: 600px){
       min-height: 100%;
+      display: flex;
     }
     @media (min-width: 992px){
       padding-bottom: 60px;
@@ -49,7 +51,11 @@ h2 {
   @media (max-width: 991px) {
     padding: 100px 10%;
       text-align: center;
-      font-size: 110%;
+  }
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   @media (min-width: 992px) {
     margin-right: 45%;
@@ -64,6 +70,10 @@ h2 {
   border: 1px solid $secondary;
   border-radius: 0;
   margin: 0 6px;
+  @media (max-width: 991px) {
+    font-size: 125%;
+    margin: 0 10px;
+  }
 
   &:hover {
     background-color: $secondary;
@@ -78,6 +88,14 @@ h2 {
   width: 25px;
   height: 25px;
   margin: 10% 5px;
+  @media (max-width: 991px) {
+    width: 35px;
+    height: 35px;
+    margin: 25px 8px;
+  }
+  @media (max-width: 600px) {
+    margin: 10% 8px;
+  }
 }
 // navigation:
 
