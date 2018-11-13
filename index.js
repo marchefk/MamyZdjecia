@@ -67,7 +67,7 @@ let getPictures = (containerID) => {
 
       let newImg = document.createElement('img');
       newImg.setAttribute('class', 'img-fluid');
-      newImg.setAttribute('src', `${url}/upload/c_scale,w_1300/f_auto/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
+      newImg.setAttribute('src', `${url}/upload/f_auto/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
 
       newDiv.append(newA);
       newA.append(newImg);

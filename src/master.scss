@@ -286,10 +286,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', end
 // about container
 
 .about-container {
-  overflow: hidden;
   background-color: white;
   &.full {
-    margin-bottom: 0px;
     @media (max-width: 992px){
       padding-left: 5%;
       padding-right: 5%;
@@ -468,7 +466,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', end
 
 //offer container
 .offer-container {
-  
+  margin-bottom: 0;
 }
 
 .transfer {

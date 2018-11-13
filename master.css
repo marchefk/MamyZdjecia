@@ -224,14 +224,11 @@ h2 {
     max-width: 100%; }
 
 .about-container {
-  overflow: hidden;
   background-color: white; }
-  .about-container.full {
-    margin-bottom: 0px; }
-    @media (max-width: 992px) {
-      .about-container.full {
-        padding-left: 5%;
-        padding-right: 5%; } }
+  @media (max-width: 992px) {
+    .about-container.full {
+      padding-left: 5%;
+      padding-right: 5%; } }
 
 .content {
   height: inherit; }
@@ -400,6 +397,9 @@ h2 {
 
 .modal-backdrop.show {
   opacity: 0.9; }
+
+.offer-container {
+  margin-bottom: 0; }
 
 .transfer {
   opacity: 0; }
