@@ -287,9 +287,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', end
 
 .about-container {
   background-color: white;
-  @media (max-width: 992px){
-    padding-left: 5%;
-    padding-right: 5%;
+  &.full {
+    @media (max-width: 992px){
+      padding-left: 5%;
+      padding-right: 5%;
+    }
   }
 }
 
@@ -319,7 +321,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', end
 // gallery: main gallery effect:
 
 .main-gallery {
-  background-color: $background-color;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -412,7 +413,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', end
 // individual galleries
 
 .category-container {
-  background-color: white;
+  background-color: $background-color;
   @media (min-width: 992px) {
     width: 70%;
     float: right;
@@ -426,17 +427,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', end
   -webkit-transition: opacity 2s ease-in 50ms;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: baseline;
-  align-content: flex-start;
+  padding: 0 4px;
   &.full {
     margin-top: 0;
   }
 }
 
+.column {
+  flex: 33%;
+  max-width: 33%;
+  padding: 0 5px;
+  // @media(max-width: 1360px) {
+  //   flex: 50%;
+  //   max-width: 50%;
+  // }
+  @media(max-width: 640px) {
+      flex: 100%;
+      max-width: 100%;
+  }
+}
+
 .category-div {
-  width: 300px;
-  margin-bottom: 3%;
+  .img-fluid {
+    margin-top: 10px;
+    vertical-align: middle;
+  }
 }
 // override ekko-lightbox css:
 .modal-content {
@@ -451,13 +466,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', end
 
 //offer container
 .offer-container {
-  &.full {
-    margin-bottom: 0px;
-    @media (max-width: 992px){
-      padding-left: 5%;
-      padding-right: 5%;
-    }
-  }
+  margin-bottom: 0;
 }
 
 .transfer {

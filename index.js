@@ -6,6 +6,10 @@ const url = 'https://res.cloudinary.com/marchefk/image';
 const nav = document.getElementById('nav');
 let loadedCategories = [];
 
+function Column() {
+  this.height = 0;
+}
+
 
 // Get home pictures and make into a carousel
 let getHomePictures = (category, containerID) => {
@@ -32,11 +36,26 @@ let getPictures = (containerID) => {
   if (loadedCategories.indexOf(containerID) !== -1){
     return;
   }
-
   loadedCategories.push(containerID);
+
+  let currentColumn = 0, nextColumn = 1;
+  let columns = [];
   let category = containerID.slice(8, containerID.length);
+
+  for (let i = 0; i < 3; i++){
+    columns[i] = new Column();
+    let newColumn = document.createElement('div');
+    newColumn.setAttribute('class', 'column');
+    newColumn.setAttribute('id', `${category}-column-${i}`);
+    document.getElementById(containerID).append(newColumn);
+  }
+
   $.getJSON(`${url}/list/${category}.json`, function(data) {
     for (let i = 0; i < data.resources.length; i++) {
+      if (nextColumn === 3){
+        nextColumn = 0;
+        currentColumn = 2;
+      }
       let imgData = data.resources[i];
       let newDiv = document.createElement('div');
       newDiv.setAttribute('class', 'category-div');
@@ -49,9 +68,22 @@ let getPictures = (containerID) => {
       let newImg = document.createElement('img');
       newImg.setAttribute('class', 'img-fluid');
       newImg.setAttribute('src', `${url}/upload/f_auto/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
-      document.getElementById(containerID).append(newDiv);
+
       newDiv.append(newA);
       newA.append(newImg);
+
+      console.log(columns[currentColumn]);
+
+      if (columns[currentColumn].height > columns[nextColumn].height){
+        columns[nextColumn].height = columns[nextColumn].height + imgData.height;
+        document.getElementById(`${category}-column-${nextColumn}`).append(newDiv);
+      } else {
+        columns[currentColumn].height = columns[currentColumn].height + imgData.height;
+        document.getElementById(`${category}-column-${currentColumn}`).append(newDiv);
+        currentColumn = nextColumn;
+        nextColumn += 1;
+      }
+      console.log(columns);
     }
   })
 }
