@@ -13,7 +13,7 @@ function Column() {
 
 // Get home pictures and make into a carousel
 let getHomePictures = (category, containerID) => {
-  $.getJSON(`${url}/list/${category}.json?callback=?`, function(data) {
+  $.getJSON(`${url}/list/${category}.json`, function(data) {
     for (let i = 0; i < data.resources.length; i++) {
       let imgData = data.resources[i];
       let newDiv = document.createElement('div');
@@ -50,7 +50,7 @@ let getPictures = (containerID) => {
     document.getElementById(containerID).append(newColumn);
   }
 
-  $.getJSON(`${url}/list/${category}.json?callback=?`, function(data) {
+  $.getJSON(`${url}/list/${category}.json`, function(data) {
     for (let i = 0; i < data.resources.length; i++) {
       if (nextColumn === 3){
         nextColumn = 0;
