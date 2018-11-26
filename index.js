@@ -10,7 +10,6 @@ function Column() {
   this.height = 0;
 }
 
-
 // Get home pictures and make into a carousel
 let getHomePictures = (category, containerID) => {
   $.getJSON(`${url}/list/${category}.json`, function(data) {
@@ -159,27 +158,21 @@ for (var elem of triggerGallery) {
         //multiple args not supported in all modern browsers
       }
     }
+
     let IDtoShow = this.getAttribute('data-toggle');
     getPictures(IDtoShow);
     let selectedCategory = document.getElementById(IDtoShow);
     selectedCategory.classList.remove('hidden');
     selectedCategory.classList.add('full');
     setTimeout(() => { selectedCategory.classList.remove('transfer'); }, 1000);
-
-  })
-}
-
-
-let navCategories = document.getElementsByClassName('inner-nav');
-for (let i = 0; i < navCategories.length; i++){
-  navCategories[i].addEventListener('click', () => {
     categoryCont.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
       inline: 'nearest'
-     });
-  }, false);
+    });
+  })
 }
+
 
 getHomePictures('home', 'home_gallery');
 $('#nav_gallery').on('click', toggleHiddenClass('.nav-category'));
