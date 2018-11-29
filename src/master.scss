@@ -338,6 +338,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', end
 
 .item {
   margin: 2% 0;
+  @media (min-width: 1596px){
+    width: calc(100% * (1/3) - 4%);
+  }
 }
 
 a {
@@ -371,6 +374,9 @@ a {
     position: relative;
     -webkit-transition: all 0.4s linear;
     transition: all 0.4s linear;
+    @media (min-width: 1596px){
+      width: 100%;
+    }
   }
 
   h2 {
