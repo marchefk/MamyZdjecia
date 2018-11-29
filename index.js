@@ -2,27 +2,26 @@
 
 let landingHeight = $("#landing").outerHeight();
 const minWidth = window.matchMedia("(min-width: 991px)");
-const url = 'https://res.cloudinary.com/marchefk/image';
 const nav = document.getElementById('nav');
-let loadedCategories = [];
-
-function Column() {
-  this.height = 0;
-}
+const urlJSON = 'https://res.cloudinary.com/marchefk/image';
+const urlPicture = `${urlJSON}/upload/f_auto/v`;
 
 // Get home pictures and make into a carousel
 let getHomePictures = (category, containerID) => {
-  $.getJSON(`${url}/list/${category}.json`, function(data) {
+  $.getJSON(`${urlJSON}/list/${category}.json`, data => {
     for (let i = 0; i < data.resources.length; i++) {
       let imgData = data.resources[i];
       let newDiv = document.createElement('div');
+
       if (i === 0) {
         newDiv.setAttribute('class', 'carousel-item active');
       } else {
         newDiv.setAttribute('class', 'carousel-item');
       }
+
       let newImg = document.createElement('img');
-      newImg.setAttribute('src', `${url}/upload/f_auto/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
+      newImg.setAttribute('src',
+        `${urlPicture}${imgData.version}/${imgData.public_id}.${imgData.format}`);
       newImg.setAttribute('class', 'd-block');
       document.getElementById(containerID).append(newDiv);
       newDiv.append(newImg);
@@ -31,6 +30,12 @@ let getHomePictures = (category, containerID) => {
 }
 
 // Get pictures for respective categories
+let loadedCategories = [];
+
+function Column() {
+  this.height = 0;
+}
+
 let getPictures = (containerID) => {
   if (loadedCategories.indexOf(containerID) !== -1){
     return;
@@ -49,24 +54,27 @@ let getPictures = (containerID) => {
     document.getElementById(containerID).append(newColumn);
   }
 
-  $.getJSON(`${url}/list/${category}.json`, function(data) {
+  $.getJSON(`${urlJSON}/list/${category}.json`, function(data) {
     for (let i = 0; i < data.resources.length; i++) {
       if (nextColumn === 3){
         nextColumn = 0;
         currentColumn = 2;
       }
+
       let imgData = data.resources[i];
       let newDiv = document.createElement('div');
       newDiv.setAttribute('class', 'category-div');
 
       let newA = document.createElement('a');
-      newA.setAttribute('href', `${url}/upload/f_auto/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
+      newA.setAttribute('href',
+        `${urlPicture}${imgData.version}/${imgData.public_id}.${imgData.format}`);
       newA.setAttribute('data-toggle', 'lightbox');
       newA.setAttribute('data-gallery', `gallery-${category}`);
 
       let newImg = document.createElement('img');
       newImg.setAttribute('class', 'img-fluid');
-      newImg.setAttribute('src', `${url}/upload/f_auto/v${imgData.version}/${imgData.public_id}.${imgData.format}`);
+      newImg.setAttribute('src',
+        `${urlPicture}${imgData.version}/${imgData.public_id}.${imgData.format}`);
 
       newDiv.append(newA);
       newA.append(newImg);
@@ -86,8 +94,8 @@ let getPictures = (containerID) => {
 
 // Show categories in nav after clicking 'gallery'
 let toggleHiddenClass = (elements) => {
-  return function(e) {
-    $(elements).each(function(i) {
+  return function() {
+    $(elements).each(function() {
       if ($(this).hasClass('hidden')) {
         $(this).removeClass('hidden');
       } else {
@@ -111,7 +119,8 @@ window.addEventListener('scroll', () => {
 
 // Smooth scrolling using jQuery easing
 $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+      location.hostname == this.hostname) {
     var target = $(this.hash);
     target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
     if (target.length) {
@@ -124,9 +133,12 @@ $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
 });
 
 // Closes responsive menu when a scroll trigger link is clicked
-$('.js-scroll-trigger').click(function() {
-  $('.navbar-collapse').collapse('hide');
-});
+let scrollTriggers = document.getElementsByClassName('js-scroll-trigger');
+for (let elem of scrollTriggers){
+  elem.addEventListener('click', () => {
+    $('.navbar-collapse').collapse('hide');
+  });
+}
 
 // Activate scrollspy to add active class to navbar items on scroll
 $('body').scrollspy({
@@ -143,14 +155,14 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event) {
 let triggerGallery = document.getElementsByClassName('trigger-gallery');
 let categoryCont = document.getElementById('category_container');
 
-for (var elem of triggerGallery) {
+for (let elem of triggerGallery) {
   elem.addEventListener('click', function() {
     if(categoryCont.style.height === '0'){
       categoryCont.style.height = '100%';
     }
 
     let galleries = document.getElementsByClassName('category-gallery');
-    for (var gallery of galleries){
+    for (let gallery of galleries){
       if (!gallery.classList.contains('hidden')) {
         gallery.classList.remove('full');
         gallery.classList.add('transfer');
@@ -177,7 +189,7 @@ for (var elem of triggerGallery) {
 getHomePictures('home', 'home_gallery');
 $('#nav_gallery').on('click', toggleHiddenClass('.nav-category'));
 
-$(window).resize(function() {
+$(window).resize(() => {
   landingHeight = $("#landing").height();
 });
 
