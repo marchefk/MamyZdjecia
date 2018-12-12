@@ -44,6 +44,10 @@ h2 {
     color: black; }
     .landing-container a:hover {
       color: grey; }
+  .landing-container .fa-angle-down {
+    color: #343c48; }
+    .landing-container .fa-angle-down:hover {
+      color: black; }
 
 .landing-content {
   padding: 0 10%;
