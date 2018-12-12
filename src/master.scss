@@ -28,6 +28,15 @@ h2 {
 
 .landing-container {
   background-color: $background-color;
+  @media (min-width: 992px){
+    background-image: url('https://res.cloudinary.com/marchefk/image/upload/v1544620279/landing/camera-narrow.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+  @media (min-width: 1824px){
+    background-image: url('https://res.cloudinary.com/marchefk/image/upload/v1544620918/landing/camera-medium.jpg');
+  }
   &.full {
     margin-top: 0;
     margin-bottom: 0;
